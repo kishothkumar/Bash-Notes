@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo Enter the number of files.
+read n
+echo
+echo Enter the first name of the file.
+read t
+echo
+
+for i in $(seq 1 $n)
+do
+	touch $t$i.txt
+done
