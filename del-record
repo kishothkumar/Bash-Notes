@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo Please enter hostname or IP address?
+read host
+echo
+
+# grep -q $host /home/mitsuser/ps/database
+grep -q $host /etc/passwd
+if [ $? -eq 0 ]
+then
+	echo
+	# sed -i '/'$host'/d' /home/mitsuser/ps/database
+	userdel $host 
+	echo $host has been deleted
+else
+	echo Record does not exist
+fi

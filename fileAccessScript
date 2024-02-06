@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in kaviya*
+do
+	chmod 777 $i
+done

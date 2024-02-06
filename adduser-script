@@ -1,0 +1,47 @@
+#!/bin/bash
+
+echo Enter the name of the user
+read n
+echo
+
+grep -q $n /etc/passwd
+if [ $? -eq 0 ]
+then
+	echo Error -- $n already exist
+	echo please try another username
+	exit 0
+fi
+
+echo Enter the user description
+read d
+echo 
+
+echo "Do you want to enter userid(y/n)?"
+read res
+echo
+
+if [ $res == y ]
+then
+	echo Enter the userId
+	read uid
+	grep -q $uid /etc/passwd
+	if [ $? -eq 0 ]
+	then
+		echo UserId already exist
+		echo
+		exit 0
+	else
+		useradd $n -c "$d" -u $uid
+		echo $n is created
+		echo
+	fi
+elif [ $res == n ]
+then
+	echo Dont worry we will assign userid
+	echo
+	useradd $n -c "$d"
+	echo $n is created
+	echo
+else
+	echo Invalid Option
+fi

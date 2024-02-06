@@ -1,0 +1,16 @@
+#!/bin/bash
+
+Files="/home/mitsuser/ps/kaviya1
+/home/mitsuser/ps/kaviya2
+/home/mitsuser/ps/kaviya3
+/home/mitsuser/ps/kaviya4
+/home/mitsuser/ps/kaviya5
+/home/mitsuser/ps/kishoth6"
+
+for file in $Files
+do
+	if [ ! -e $file ]
+	then 
+		echo $file Do not exist
+	fi
+done

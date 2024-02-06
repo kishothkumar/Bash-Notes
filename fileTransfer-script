@@ -1,0 +1,10 @@
+#!/bin/bash
+
+files="kishoth"
+
+host='192.168.17.200'
+
+for file in $files
+do
+	scp $file $host:/home/mitsuser/
+done
